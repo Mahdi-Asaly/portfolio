@@ -1,9 +1,11 @@
 import  { useEffect,useState } from 'react';
 import "./portfolio.scss"
 import PortfolioList from "../portfolioList/PortfolioList";
+import {reactPortfolio, webPortfolio , deployingPortfolio } from "../../data";
 
 export default function Portfolio() {
     const [selected, setSelected] = useState("netApp");
+    const [data, setData] = useState([]);
     const list= [
         {
             id:"netApp",
@@ -18,11 +20,25 @@ export default function Portfolio() {
             title: "Deploying",
         },
     ]
-
+    useEffect(()=>{
+        switch(selected){
+            case "netApp":
+                setData(webPortfolio);
+                break;
+            case "react":
+                setData(reactPortfolio);
+                break;
+            case "deploying":
+                setData(deployingPortfolio);
+                break;
+            default:
+                setData(webPortfolio);
+        }
+    },[selected]);
     return (
         
         <div className="portfolio" id="portfolio">
-            <h1>Portfolio</h1>
+            <h1>My Projects</h1>
             <ul>
                 {list.map(item=>(
                     <PortfolioList 
@@ -34,30 +50,16 @@ export default function Portfolio() {
                 ))}
             </ul>
             <div className="container">
+                {data.map(d=>(
                 <div className="item">
-                    <img src="https://code.visualstudio.com/assets/apple-touch-icon.png" alt=""/>
-                    <h3>Sheep Manager .NET App</h3>
-                </div>
-                <div className="item">
-                <img src="https://code.visualstudio.com/assets/apple-touch-icon.png"  alt=""/>
-                    <h3>Sheep Manager with React&NodeJs</h3>
-                </div>
-                <div className="item">
-                    <img src="https://code.visualstudio.com/assets/apple-touch-icon.png" alt=""/>
-                    <h3>Online Store with React&NodeJ</h3>
-                </div>
-                <div className="item">
-                <img src="https://code.visualstudio.com/assets/apple-touch-icon.png"  alt=""/>
-                    <h3>Load Balancer with Python</h3>
-                </div>
-                <div className="item">
-                    <img src="https://code.visualstudio.com/assets/apple-touch-icon.png" alt=""/>
-                    <h3>Portfolio</h3>
-                </div>
-                <div className="item">
-                <img src="https://code.visualstudio.com/assets/apple-touch-icon.png"  alt=""/>
-                    <h3>Banking App</h3>
-                </div>
+                <img src={d.img} onClick={()=>{
+                    window.location.href = d.gitUrl;
+                }} alt=""/>
+                <h3>{d.title}</h3>
+                 </div>
+                ))}
+
+
             </div>
         </div>
     )

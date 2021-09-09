@@ -1,12 +1,12 @@
 import "./topbar.scss"
 import {Person , Mail} from "@material-ui/icons"
-
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 export default function Topbar({ menuOpen,setMenuOpen }) {
     return (
         <div className={"topbar " + (menuOpen && "active" )}>
            <div className="wrapper">
                 <div className="left">
-                    <a href="#intro" className="logo">Mahdi Portfolio</a>
+                    <a href="#intro" className="logo">Mahdi-Dev</a>
                     <div className="itemContainer">
                         <Person className="icon"/>
                         <span>0523469716</span>
@@ -14,6 +14,10 @@ export default function Topbar({ menuOpen,setMenuOpen }) {
                     <div className="itemContainer">
                         <Mail className="icon"/>
                         <span>MahdiAsaly@gmail.com</span>
+                    </div>
+                    <div className="itemContainer">
+                        <LocationOnIcon className="icon"/>
+                        <span>Kafr Qaraa, Al Beer Str.</span>
                     </div>
                 </div>
                 <div className="right">

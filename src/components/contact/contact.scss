@@ -3,10 +3,22 @@
 .contact {
   background-color: white;
   display: flex;
-  @include mobile{
+  @include mobile {
     flex-direction: column;
   }
-
+  .button {
+    width: 150px;
+    height: 30px;
+    color: white;
+    background-color: crimson;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    &:focus {
+      outline: none;
+    }
+  }
   .left {
     flex: 1;
     overflow: hidden;
@@ -34,33 +46,22 @@
         width: 300px;
         height: 30px;
         font-size: 14px;
-        @include mobile{
+        @include mobile {
           width: 200px;
           height: 20px;
         }
       }
+
       textarea {
         width: 300px;
         height: 200px;
         font-size: 14px;
-        @include mobile{
+        @include mobile {
           width: 200px;
           height: 100px;
         }
       }
-      button {
-        width: 150px;
-        height: 30px;
-        color: white;
-        background-color: crimson;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-weight: 500;
-        &:focus {
-          outline: none;
-        }
-      }
+
       span {
         color: green;
       }

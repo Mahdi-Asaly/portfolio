@@ -6,7 +6,7 @@ export default function Contact() {
     let [name, setName] = useState('');
     let [email, setEmail] = useState('');
     let [subject, setSubject] = useState('');
-
+    let [msgFlag, setMsgFlag] = useState(false);
 
     const handleChange = (event) => {
         setName(event.target.value);
@@ -26,6 +26,12 @@ export default function Contact() {
              alert('one or more fields are empty :(');
              return;
          }
+         if(msgFlag){
+             alert('Msg was already sent, please try again later.');
+             e.preventDefault();
+             return;
+         }
+        setMsgFlag(!msgFlag); //sending the flag to true
         e.preventDefault();
         emailjs.sendForm('service_u6nmfpd', 'template_9ahli7q', e.target, 'user_uXHw7zQ0Y4gwNQEL1YyNI')
           .then((result) => {

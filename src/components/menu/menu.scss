@@ -1,4 +1,52 @@
 @import "../../global.scss";
+
+.menu___class {
+  display: flex;
+  flex-direction: column;
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.item___class {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  border-radius: 10px;
+  @include mobile {
+    display: flex;
+    align-items: center;
+  }
+}
+.item___class > h2 {
+  margin-left: 10px;
+}
+a {
+  @include mobile {
+    font-size: 10px;
+  }
+  font-size: inherit;
+  color: inherit;
+  text-decoration: none;
+  color: white;
+  flex: 1;
+  font-size: 24px;
+  //font-weight: bold;
+}
+
+.icon___class {
+  color: white;
+  border-radius: 15px;
+  border: 5px solid rgb(142, 160, 160);
+}
+
+.item___class:hover {
+  background-color: rgb(90, 89, 89);
+  cursor: pointer;
+}
+.item___class:hover > .icon___class {
+  color: red;
+}
 .menu {
   @include mobile {
     width: 108px;
@@ -22,7 +70,6 @@
   ul {
     @include mobile {
       font-size: 18px;
-
     }
     margin: 0;
     padding: 0;

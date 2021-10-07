@@ -16,6 +16,9 @@
     .left {
       display: flex;
       align-items: center;
+      .logo:hover{
+        color:blueviolet;
+      }
       .logo {
         @include mobile {
           font-size: 20px;
@@ -29,6 +32,10 @@
         text-decoration: none;
         color: inherit;
         margin-right: 40px;
+      }
+        
+      .itemContainer:hover > span{
+        cursor: pointer;
       }
       .itemContainer {
         display: flex;
